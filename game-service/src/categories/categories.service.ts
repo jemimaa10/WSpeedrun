@@ -1,7 +1,7 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaService } from '@/prisma/prisma.service';
 import { CreateCategoryDto } from './dto/create-category.dto';
-import { v4 as uuidv4 } from 'uuid'; // Hubungkan generator UUID
+import { v4 as uuidv4 } from 'uuid'; // mengubungkan generator UUID
 import { UpdateCategoryDto } from './dto/update-category.dto';
 
 @Injectable()
@@ -20,7 +20,7 @@ export class CategoriesService {
   }
 
   async create(createCategoryDto: CreateCategoryDto) {
-    // Pastikan game_id yang dikirim benar-asli ada di database tabel games
+    // memastikan game_id yang dikirim benar asli ada di database tabel games
     const gameExists = await this.prisma.game.findUnique({
       where: { game_id: createCategoryDto.game_id },
     });

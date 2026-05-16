@@ -15,7 +15,7 @@ export class GamesController {
   @Get('games/:id')
   findOne(@Param('id') id: string) { return this.gamesService.findOne(id); }
 
-  // Gunakan Guard di bawah ini untuk mengunci endpoint Admin
+  // Memakai Guard untuk mengunci endpoint Admin
   @Post('admin/games')
   // @UseGuards(AuthGuard('jwt'), RolesGuard)
   create(@Body() createGameDto: CreateGameDto) {

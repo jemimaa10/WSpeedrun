@@ -16,7 +16,7 @@ export class GamesService {
     const game = await this.prisma.game.findUnique({
       where: { game_id: id },
       include: {
-        categories: true, // Relasi ini otomatis menarik semua category miliknya
+        categories: true, 
       },
     });
 
@@ -30,7 +30,7 @@ export class GamesService {
   async create(createGameDto: CreateGameDto) {
     return this.prisma.game.create({
       data: {
-        game_id: uuidv4(), // Jangan sampai kosong agar tidak error runtime
+        game_id: uuidv4(), 
         ...createGameDto,
       },
     });
