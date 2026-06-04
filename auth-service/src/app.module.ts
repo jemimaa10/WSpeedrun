@@ -10,7 +10,7 @@ import { UsersController } from './users/users.controller';
   imports: [
     PassportModule,
     JwtModule.register({
-      secret: 'WSpeedrun/auth-service/.env', 
+      secret: 'SUPER_SECRET_KEY_BINUS', 
       signOptions: { expiresIn: '1h' },
     }),
   ],
