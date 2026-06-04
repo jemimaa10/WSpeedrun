@@ -1,0 +1,45 @@
+CREATE TABLE users (
+    user_id VARCHAR(36) PRIMARY KEY,
+    username VARCHAR(55),
+    email VARCHAR(255),
+    password VARCHAR(55),
+    country VARCHAR(55),
+    role VARCHAR(25)
+	);
+
+CREATE TABLE games(
+	game_id VARCHAR(36) PRIMARY KEY,
+    game_name VARCHAR(255),
+    description VARCHAR(255)
+)	;
+
+CREATE TABLE run_categories(
+    run_category_id VARCHAR(36) PRIMARY KEY,
+    game_id VARCHAR(36),
+    run_category_name VARCHAR(255),
+    FOREIGN KEY (game_id) REFERENCES games(game_id)
+	);
+
+CREATE TABLE runs(
+	run_id VARCHAR(36) PRIMARY KEY,
+    run_category_id VARCHAR(36),
+    user_id VARCHAR(36),
+    vod_url VARCHAR(255),
+    run_duration BIGINT,
+    submitted_at DATETIME,
+    verified_at DATETIME,
+    status VARCHAR(25) CHECK (status IN ('PENDING', 'ACCEPTED', 'REJECTED')),
+    FOREIGN KEY (user_id) REFERENCES users(user_id),
+    FOREIGN KEY (run_category_id) REFERENCES run_categories(run_category_id)
+	);
+
+CREATE TABLE comments(
+    comment_id VARCHAR(36) PRIMARY KEY,
+    run_id VARCHAR(36),
+    user_id VARCHAR(36),
+    comment VARCHAR(255),
+    created_at DATETIME,
+    FOREIGN KEY (run_id) REFERENCES runs (run_id),
+    FOREIGN KEY (user_id) REFERENCES users (user_id)
+    
+    );
