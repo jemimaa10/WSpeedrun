@@ -73,7 +73,7 @@ export class AuthService {
       throw new UnauthorizedException('Password salah.');
     }
 
-    const payload = { id: user.user_id, role: user.role }; // Payload sesuai permintaan dokumen [cite: 62]
+    const payload = { id: user.user_id, role: user.role }; 
     
     return {
       access_token: this.jwtService.sign(payload),

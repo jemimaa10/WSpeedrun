@@ -14,9 +14,13 @@ async function bootstrap() {
     .build();
     
   const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('api', app, document); // 'api' is the URL path
+  SwaggerModule.setup('api/docs', app, document); // 'api' is the URL path
   // -----------------------------
 
-  await app.listen(3000);
+  await app.listen(3002);
+
+  console.log(
+    `Swagger Documentation: http://localhost:3002/api/docs`,
+  );
 }
 bootstrap();

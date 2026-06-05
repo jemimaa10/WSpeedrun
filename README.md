@@ -1,6 +1,6 @@
 # 🏆 WSpeedrun Project - Group 13
 
-Sistem ini terbagi menjadi tiga bagian utama sesuai spesifikasi tugas test test:
+Sistem ini terbagi menjadi tiga bagian utama sesuai spesifikasi tugas:
 
 ---
 

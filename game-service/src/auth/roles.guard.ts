@@ -1,5 +1,4 @@
 // Guard ini berfungsi untuk memblokir request jika role user di dalam token bukan 'Admin'.
-
 import { Injectable, CanActivate, ExecutionContext, ForbiddenException } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
 
@@ -17,7 +16,7 @@ export class RolesGuard implements CanActivate {
     }
 
     // Cek apakah role-nya Admin
-    if (user.role !== 'Admin') {
+    if (user.role?.toUpperCase() !== 'ADMIN') {
       throw new ForbiddenException('Access denied. Admin only.');
     }
 
